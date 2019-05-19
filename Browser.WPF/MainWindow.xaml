@@ -1,0 +1,50 @@
+﻿<Window x:Class="Browser.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Browser.WPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Browser" Height="469.068" Width="970.916">
+    <Grid>
+        <ToolBar Height="34" VerticalAlignment="Top" DockPanel.Dock="Top">
+            <Button Name="goBackButton"
+                Height="62" Margin="0,-17,0,-16" Click="GoBackButton_Click">
+                <Image Source="Pictures/back.jpg" Height="30"/>
+            </Button>
+            <Button Name="goForwardButton"
+                Height="64" Margin="0,-18,0,-17" Click="GoForwardButton_Click">
+                <Image Source="Pictures/forward.jpg" Height="30"/>
+            </Button>
+            <Button Name="browseRefreshButton"
+                Height="61" Margin="0,-17,0,-15" Click="BrowseRefreshButton_Click">
+                <Image Source="Pictures/refresh.jpg" Height="30"/>
+            </Button>
+            <TextBox Name="urlTextBox" Text="Введите поисковый запрос..."
+                     Foreground="LightGray" 
+                     Width="595" Height="38" Margin="0,-4,0,-5" 
+                     KeyUp="UrlTextBox_KeyUp" GotFocus="UrlTextBox_GotFocus"></TextBox>
+            <Button Name="pageAddButton"
+                Height="61" Margin="0,-17,0,-15" Click="PageAddButton_Click">
+                <Image Source="Pictures/add_tab.jpg" Height="30"/>
+            </Button>
+            <Button Name="pageCloseButton"
+                Height="61" Margin="0,-17,0,-15" Click="PageCloseButton_Click">
+                <Image Source="Pictures/close_tab.jpg" Height="30"/>
+            </Button>
+        </ToolBar>
+        <TabControl x:Name="tabControl" Margin="0,39,0,0">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Google</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <WebBrowser Source="https://www.google.com/"/>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
